@@ -1,6 +1,6 @@
-package cn.qianfg.cimserver;
+package fun.qianfg.cimserver;
 
-import cn.qianfg.cimserver.server.Server;
+import fun.qianfg.cimserver.server.Server;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

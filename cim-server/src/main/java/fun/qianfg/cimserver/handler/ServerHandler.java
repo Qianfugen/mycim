@@ -1,4 +1,4 @@
-package cn.qianfg.cimserver.handler;
+package fun.qianfg.cimserver.handler;
 
 import fun.qianfg.cst.MessageTypeCst;
 import fun.qianfg.dto.MessageDto;

@@ -1,4 +1,4 @@
-package cn.qianfg.cimserver.handler;
+package fun.qianfg.cimserver.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

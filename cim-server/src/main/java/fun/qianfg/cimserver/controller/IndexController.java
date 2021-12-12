@@ -1,4 +1,4 @@
-package cn.qianfg.cimserver.controller;
+package fun.qianfg.cimserver.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

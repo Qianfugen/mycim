@@ -1,4 +1,4 @@
-package cn.qianfg.cimserver;
+package fun.qianfg.cimserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,7 @@
-package cn.qianfg.cimserver.init;
+package fun.qianfg.cimserver.init;
 
-import cn.qianfg.cimserver.handler.ServerHandler;
-import cn.qianfg.cimserver.handler.TestHandler;
+import fun.qianfg.cimserver.handler.ServerHandler;
+import fun.qianfg.cimserver.handler.TestHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 
