@@ -47,7 +47,7 @@ public class Server {
                 .childHandler(new ServerInitializer());
 
         ChannelFuture channelFuture = serverBootstrap.bind(nettyPort).sync();
-        channelFuture.channel().closeFuture().syncUninterruptibly();
+//        channelFuture.channel().closeFuture().syncUninterruptibly();
         if (channelFuture.isSuccess()) {
             log.info("CIM Server start...");
         }

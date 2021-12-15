@@ -31,6 +31,13 @@ public class ServerHandler extends SimpleChannelInboundHandler<MessageDto> {
             SessionMap.put(messageDto.getUserId(), new Session(messageDto.getUserId(), messageDto.getName()));
             log.info("用户【{}】上线...", messageDto.getName());
         }
+
+        MessageDto msg = new MessageDto();
+        msg.setMsg("hello,client!");
+        msg.setName("server-qianfg");
+        msg.setType(MessageTypeCst.MSG);
+        msg.setUserId(1L);
+        ctx.writeAndFlush(msg);
     }
 
     @Override
@@ -44,6 +51,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<MessageDto> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
         log.info("ServerHandler发送异常，异常信息：{}", cause.getMessage());
     }
 }

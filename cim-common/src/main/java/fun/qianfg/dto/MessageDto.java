@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * Function: 发送消息DTO
  *
@@ -13,7 +15,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel("发送消息DTO")
-public class MessageDto {
+public class MessageDto implements Serializable {
 
     @ApiModelProperty("消息类型")
     private int type;

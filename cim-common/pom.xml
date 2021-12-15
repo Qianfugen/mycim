@@ -65,6 +65,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.31</version>
         </dependency>
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>4.0.63</version>
+        </dependency>
     </dependencies>
 
     <build>
