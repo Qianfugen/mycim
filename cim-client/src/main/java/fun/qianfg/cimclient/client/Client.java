@@ -8,6 +8,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
@@ -26,12 +27,14 @@ public class Client {
     /**
      * 服务端地址
      */
-    private String ip = "127.0.0.1";
+    @Value("${cim.server.ip}")
+    private String ip;
 
     /**
      * 服务端端口
      */
-    private int port = 11211;
+    @Value("${cim.server.port}")
+    private int port;
 
     private EventLoopGroup group = new NioEventLoopGroup();
 

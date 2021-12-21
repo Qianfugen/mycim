@@ -8,6 +8,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -34,7 +35,8 @@ public class Server {
     /**
      * netty服务监听端口
      */
-    private int nettyPort = 11211;
+    @Value("${cim.server.port}")
+    private int nettyPort;
 
     /**
      * 启动
