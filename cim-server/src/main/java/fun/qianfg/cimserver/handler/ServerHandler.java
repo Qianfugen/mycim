@@ -25,6 +25,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<MessageDto> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageDto messageDto) {
         log.info("收到用户【{}】发来的消息：{}", messageDto.getName(), messageDto.getMsg());
+
         if (MessageTypeCst.LOGIN == messageDto.getType()) {
             // 登录消息,保存客户端与channel之间的关系
             ChannelMap.put(messageDto.getUserId(), (NioSocketChannel) ctx.channel());
@@ -32,11 +33,12 @@ public class ServerHandler extends SimpleChannelInboundHandler<MessageDto> {
             log.info("用户【{}】上线...", messageDto.getName());
         }
 
-        MessageDto msg = new MessageDto();
-        msg.setMsg("hello,client!");
-        msg.setName("server-qianfg");
-        msg.setType(MessageTypeCst.MSG);
-        msg.setUserId(1L);
+        MessageDto msg = MessageDto.builder()
+                .name("server-qianfg")
+                .msg("hello,client!")
+                .type(MessageTypeCst.MSG)
+                .userId(1L)
+                .build();
         ctx.writeAndFlush(msg);
     }
 

@@ -2,7 +2,10 @@ package fun.qianfg.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -14,6 +17,9 @@ import java.io.Serializable;
  * @Email: 287541326@qq.com
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @ApiModel("发送消息DTO")
 public class MessageDto implements Serializable {
 

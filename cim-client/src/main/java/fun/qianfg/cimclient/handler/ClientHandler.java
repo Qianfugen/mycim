@@ -27,18 +27,29 @@ public class ClientHandler extends SimpleChannelInboundHandler<MessageDto> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageDto messageDto) {
         log.info("收到用户【{}】消息：{}", messageDto.getName(), messageDto.getMsg());
+        ctx.channel().eventLoop().schedule(() -> {
+            MessageDto msg = MessageDto.builder()
+                    .msg("hello,server!")
+                    .name("client-qianfg")
+                    .type(MessageTypeCst.MSG)
+                    .userId(2L)
+                    .build();
+            ctx.writeAndFlush(msg);
+        }, 2, TimeUnit.SECONDS);
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         log.info("Connect successfully...");
-        MessageDto msg = new MessageDto();
-        msg.setMsg("hello,server!");
-        msg.setName("client-qianfg");
-        msg.setType(MessageTypeCst.MSG);
-        msg.setUserId(2L);
+        MessageDto msg = MessageDto.builder()
+                .msg("hello,server!")
+                .name("client-qianfg")
+                .type(MessageTypeCst.LOGIN)
+                .userId(2L)
+                .build();
+        ctx.writeAndFlush(msg);
         //每个2s发送一次
-        ctx.channel().eventLoop().scheduleAtFixedRate(() -> ctx.writeAndFlush(msg), 0, 2, TimeUnit.SECONDS);
+//        ctx.channel().eventLoop().scheduleAtFixedRate(() -> ctx.writeAndFlush(msg), 0, 2, TimeUnit.SECONDS);
     }
 
     @Override
